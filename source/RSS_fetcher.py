@@ -38,8 +38,7 @@ def lambda_handler(event, context):
         'title').text+"\\n\\n"+entry.find(
         'pubDate').text+"\\n\\n"+description+"\\n\\n"+entry.find(
             'link').text+"\"}"
-        printable = "\\n".join(payload.split("\n"))
-        response = requests.post(ADDRESS, data=printable.encode('utf-8'),
+        response = requests.post(ADDRESS, data=payload.encode('utf-8'),
                                  headers=POST_HEADERS)
         print(response.status_code)
         print()
